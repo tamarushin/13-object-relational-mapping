@@ -20,25 +20,25 @@ Follow the instructions in the "Lab Submission Instructions" document in the cou
 * use the express `Router` to create a route for doing **RESTFUL CRUD** operations against your _model_
 
 ## Server Endpoints
-### `/api/resource-name`
+### `/api/v1/resource-name`
 * `POST` request
   * should pass data as stringifed JSON in the body of a post request to create a new resource
-
-### `/api/resource-name/:id`
+### `api/v1/resource-name`
+* `GET` request
+* Fetch all resources
+### `/api/v1/resource-name/:id`
 * `GET` request
   * should pass the id of a resource through the url endpoint to get a resource
     * **this should use `req.params`, not querystring parameters**
 * `PUT` request
   * should pass data as stringifed JSON in the body of a put request to overwrite a pre-existing resource
-* `PATCH` request
-    * should pass data as stringifed JSON in the body of a put request to update a pre-existing resource
 * `DELETE` request
   * should pass the id of a resource though the url endpoint to delete a resource
     * **this should use `req.params`**
 
 ### Tests
 * create a test that will ensure that your API returns a status code of 404 for routes that have not been registered
-* create a series of tests to ensure that your `/api/resource-name` endpoint responds as described for each condition below:
+* create a series of tests to ensure that your `/api/v1/resource-name` endpoint responds as described for each condition below:
   * `GET` - test 200, returns a resource with a valid body
  * `GET` - test 404, respond with 'not found' for valid requests made with an id that was not found
  * `PUT` - test 200, returns a resource with an updated body
