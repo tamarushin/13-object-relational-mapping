@@ -5,24 +5,19 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 
-// Custom Libraries
 import router from './api/api.js';
 
-// Custom Middleware
 import errorHandler from './middleware/error.js';
 import notFound from './middleware/404.js';
 
 let app = express();
 
-// App level middleware
 app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
-// Our API Routes
 app.use(router);
 
-// Errors and 404's
 app.use(notFound);
 app.use(errorHandler);
 
